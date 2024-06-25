@@ -29,7 +29,7 @@ jobs:
               uses: simple-elf/allure-report-action@master
               id: allure-report
               with:
-                allure_results: build/allure-results
+                allure_results: allure-results
                 gh_pages: gh-pages
                 allure_report: allure-report
                 allure_history: allure-history
@@ -37,6 +37,6 @@ jobs:
             - name: Deploy report to Github Pages
               uses: peaceiris/actions-gh-pages@v2
               env:
-                PERSONAL_TOKEN: ${{ secrets.TOKEN }}
+                PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 PUBLISH_BRANCH: gh-pages
                 PUBLISH_DIR: allure-history
